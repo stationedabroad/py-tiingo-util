@@ -28,7 +28,6 @@ class Timer:
     def _reset_lap(self):
         self.start_time = time.time()
         self.start_count = time.perf_counter()   
-        self._laps = OrderedDict()   
 
     def reset(self):
         self.start_time = time.time()
