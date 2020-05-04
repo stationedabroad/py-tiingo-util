@@ -5,8 +5,8 @@ import time
 from timer import Timer
 
 @pytest.fixture
-def some_laps():
-    return 3
+def some_laps(laps=3):
+    return laps
 
 def test_initialisation():
     timer = Timer()
@@ -23,3 +23,11 @@ def test_laps(some_laps):
     print(timer.laps)
     assert timer._lap_number == some_laps
     assert len(timer._laps) == some_laps
+
+def test_order_of_laps(some_laps):
+    timer = Timer()
+    for lap in range(some_laps):
+        time.sleep(1)
+        timer.lap()
+    print(timer.laps)
+    assert list(timer._laps.keys()) == [0, 1, 2]
