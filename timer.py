@@ -15,7 +15,7 @@ class Timer:
         overall_dtime = str(timedelta(seconds=lap_time))
         self._laps[self._lap_number] = (overall_dtime, lap_time)
         self._lap_number += 1
-        self.reset_lap()
+        self._reset_lap()
 
     @property
     def laps(self):
@@ -24,7 +24,7 @@ class Timer:
         for lap in self._laps.items():
             print(f"Lap: {lap[0]} -> {lap[1]}")
 
-    def reset_lap(self):
+    def _reset_lap(self):
         self.start_time = time.time()
         self.start_count = time.perf_counter()   
         self._laps = OrderedDict()   
