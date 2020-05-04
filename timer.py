@@ -21,6 +21,7 @@ class Timer:
     def laps(self):
         if not len(self._laps):
             print("No current laps")
+            return
         for lap in self._laps.items():
             print(f"Lap: {lap[0]} -> {lap[1]}")
 
