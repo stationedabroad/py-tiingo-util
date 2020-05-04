@@ -19,7 +19,7 @@ class Timer:
 
     @property
     def laps(self):
-        if len(self._laps) == 0:
+        if not len(self._laps):
             print("No current laps")
         for lap in self._laps.items():
             print(f"Lap: {lap[0]} -> {lap[1]}")
