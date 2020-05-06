@@ -4,11 +4,19 @@ from datetime import timedelta
 
 class Timer:
 
-    def __init__(self):
+    def __init__(self, defer=False):
+        self.defer = defer
+        if not self.defer:
+            self.reset()
+
+    def start(self):            
+        self.defer = False
         self.reset()
 
     def current(self) -> float:
-        return time.perf_counter() - self.start_count
+        if not self.defer:
+            return time.perf_counter() - self.start_count
+        return "Timer not started, call start()"
 
     def lap(self):
         lap_time = self.current()
@@ -37,6 +45,8 @@ class Timer:
 
     def __repr__(self) -> str:
         class_name = self.__class__.__name__
+        if self.defer:
+            return f"{class_name}(Timer not started yet)"        
         begin = time.ctime(self.start_time)
         current_timer = self.current()
         return f"{class_name}(Inception: {begin}, Current timer value: {str(timedelta(seconds=current_timer))})"
