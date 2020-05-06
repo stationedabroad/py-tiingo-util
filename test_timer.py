@@ -20,7 +20,6 @@ def test_laps(some_laps):
     for lap in range(some_laps):
         time.sleep(1)
         timer.lap()
-    print(timer.laps)
     assert timer._lap_number == some_laps
     assert len(timer._laps) == some_laps
 
@@ -29,5 +28,17 @@ def test_order_of_laps(some_laps):
     for lap in range(some_laps):
         time.sleep(1)
         timer.lap()
-    print(timer.laps)
     assert list(timer._laps.keys()) == [0, 1, 2]
+
+def test_reset(some_laps):
+    timer = Timer()
+    st_count = timer.start_count
+    for lap in range(some_laps):
+        time.sleep(1)
+        timer.lap()
+    timer.reset()
+    assert timer._lap_number == 0
+    assert timer.start_count != st_count
+    assert len(timer._laps ) == 0
+
+
