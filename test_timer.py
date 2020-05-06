@@ -8,34 +8,33 @@ from timer import Timer
 def some_laps(laps=3):
     return laps
 
-def test_initialisation():
+@pytest.fixture
+def timer_obj(some_laps):
+    t = Timer()
+    for lap in range(some_laps):
+        time.sleep(1)
+        t.lap()
+    return t
+
+def test_timer_start():
     timer = Timer()
     assert timer.start_time > 0 and type(timer.start_time) == float
     assert timer.start_count > 0 and type(timer.start_count) == float
     assert timer._lap_number == 0
     assert timer.laps == None
 
-def test_laps(some_laps):
-    timer = Timer()
-    for lap in range(some_laps):
-        time.sleep(1)
-        timer.lap()
+def test_laps(timer_obj, some_laps):
+    timer = timer_obj
     assert timer._lap_number == some_laps
     assert len(timer._laps) == some_laps
 
-def test_order_of_laps(some_laps):
-    timer = Timer()
-    for lap in range(some_laps):
-        time.sleep(1)
-        timer.lap()
+def test_order_of_laps(timer_obj):
+    timer = timer_obj
     assert list(timer._laps.keys()) == [0, 1, 2]
 
-def test_reset(some_laps):
-    timer = Timer()
+def test_reset(timer_obj):
+    timer = timer_obj
     st_count = timer.start_count
-    for lap in range(some_laps):
-        time.sleep(1)
-        timer.lap()
     timer.reset()
     assert timer._lap_number == 0
     assert timer.start_count != st_count
