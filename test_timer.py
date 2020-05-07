@@ -23,6 +23,14 @@ def test_timer_start():
     assert timer._lap_number == 0
     assert timer.laps == None
 
+def test_timer_stop():
+    timer = Timer()
+    time.sleep(1)
+    timer.stop()
+    stopped_at_time = timer.current()
+    time.sleep(1)
+    assert stopped_at_time == timer.current()
+
 def test_laps(timer_obj, some_laps):
     timer = timer_obj
     assert timer._lap_number == some_laps

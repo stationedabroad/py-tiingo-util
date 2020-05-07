@@ -5,17 +5,26 @@ from datetime import timedelta
 class Timer:
 
     def __init__(self, defer=False):
-        self.defer = defer
+        self.stopped_value = 0
+        self.stopped = self.defer = defer
         if not self.defer:
             self.reset()
 
-    def start(self):            
-        self.defer = False
+    def start(self):
+        if self.stopped:
+            self.start_count = time.perf_counter()
+        self.stopped = self.defer = False
         self.reset()
+
+    def stop(self):
+        self.stopped_value = self.current()
+        self.defer = self.stopped = True   
 
     def current(self) -> float:
         if not self.defer:
-            return time.perf_counter() - self.start_count
+            return time.perf_counter() - self.start_count + self.stopped_value
+        if self.stopped:
+            return self.stopped_value            
         return "Timer not started, call start()"
 
     def lap(self):
