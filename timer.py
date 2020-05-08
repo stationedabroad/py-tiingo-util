@@ -13,8 +13,9 @@ class Timer:
     def start(self):
         if self.stopped:
             self.start_count = time.perf_counter()
-        self.stopped = self.defer = False
-        self.reset()
+            self.stopped = self.defer = False            
+        else:            
+            self.reset()
 
     def stop(self):
         self.stopped_value = self.current()

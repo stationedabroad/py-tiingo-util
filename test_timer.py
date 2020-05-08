@@ -27,9 +27,16 @@ def test_timer_stop():
     timer = Timer()
     time.sleep(1)
     timer.stop()
-    stopped_at_time = timer.current()
+    time.sleep(2)
+    # stop timer then check
+    assert round(timer.current()) == 1
+    # start and stop then check
+    timer.start()
+    time.sleep(2)
+    timer.stop()
     time.sleep(1)
-    assert stopped_at_time == timer.current()
+    assert round(timer.current()) == 3
+
 
 def test_laps(timer_obj, some_laps):
     timer = timer_obj
