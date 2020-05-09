@@ -1,6 +1,9 @@
 import requests
 
+# add countries
 countries = ["Poland"]
+
+# add metrics: ECDC_ConfirmedCases, ECDC_ConfirmedDeaths for example from ECDC (amongst others)
 metrics = ["ECDC_ConfirmedCases"]
 
 headers = {
