@@ -4,8 +4,10 @@ import time
 
 from timer import Timer
 
+LAPS = 3
+
 @pytest.fixture
-def some_laps(laps=3):
+def some_laps(laps=LAPS):
     return laps
 
 @pytest.fixture
