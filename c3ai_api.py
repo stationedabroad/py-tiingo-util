@@ -1,12 +1,14 @@
 import requests
 import ujson
 
+from covid19 import get_covid_country_data
+
 # add countries
 countries = [location for location in open("data/locations.csv", "r").readlines()]
 countries = ['Poland']
 
 # add metrics: ECDC_ConfirmedCases, ECDC_ConfirmedDeaths for example from ECDC (amongst others)
-metrics = ["ECDC_ConfirmedCases", "ECDC_ConfirmedDeaths"]
+metrics = ["ECDC_ConfirmedCases"]#, "ECDC_ConfirmedDeaths", "NYT_ConfirmedCases", "NYT_ConfirmedDeaths"]
 
 headers = {
     "Accept": "application/json",
@@ -24,10 +26,5 @@ query = {
         "end": "2020-05-11"
     }
 }
-query = dict(query)
-data_response = requests.post(resource, json=query, headers=headers)
 
-if data_response.status_code == 200:
-    f = open(f"data/{countries[0]}.json", "w")
-    f.writelines(data_response.json())
-    f.close()
+get_covid_country_data(resource, 'Poland', query)
