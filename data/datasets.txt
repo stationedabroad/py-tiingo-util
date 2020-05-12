@@ -1,0 +1,18 @@
+Metrics
+-------
+
+John Hopkins:
+JHU_ConfirmedCases, JHU_ConfirmedDeaths, JHU_ConfirmedRecoveries, JHU_ConfirmedCasesInterpolated
+
+Covid-Tracking-Project:
+CovidTrackingProject_ConfirmedCases, CovidTrackingProject_ConfirmedDeaths, CovidTrackingProject_ConfirmedHospitalizations,
+CovidTrackingProject_NegativeTests, CovidTrackingProject_PendingTests
+
+European Centre for Disease Prevention & Control:
+ECDC_ConfirmedCases, ECDC_ConfirmedDeaths
+
+New York Times:
+NYT_ConfirmedCases, NYT_ConfirmedDeaths
+
+WHO:
+WHO_ConfirmedCases, WHO_ConfirmedDeaths
