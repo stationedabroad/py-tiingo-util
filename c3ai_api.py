@@ -5,7 +5,6 @@ from covid19 import get_covid_country_data
 
 # add countries
 countries = [location for location in open("data/locations.csv", "r").readlines()]
-countries = ['Poland']
 
 # add metrics: ECDC_ConfirmedCases, ECDC_ConfirmedDeaths for example from ECDC (amongst others)
 metrics = ["ECDC_ConfirmedCases", 
@@ -32,16 +31,18 @@ headers = {
 
 resource = "https://api.c3.ai/covid/api/1/outbreaklocation/evalmetrics"
 
-for metric in metrics:
+for country in countries:
+    for metric in metrics:
 
-    query = {
-        "spec": {
-            "ids": countries,
-            "expressions": [metric],
-            "interval": "DAY",
-            "start": "2020-01-01",
-            "end": "2020-05-11"
+        query = {
+            "spec": {
+                "ids": [country],
+                "expressions": [metric],
+                "interval": "DAY",
+                "start": "2020-01-01",
+                "end": "2020-05-14"
+            }
         }
-    }
 
-    res = get_covid_country_data(resource, 'Poland', query, metric)
+    res = get_covid_country_data(resource, country, query, metric)
+    print(f"country data: {country} status: {res.status_code}")
