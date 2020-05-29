@@ -6,7 +6,7 @@ class TimeError(Exception):
     """ Custom exception for timer based exceptions """
 
 
-class SWTimer:
+class StopWatchTimer:
 
     def __init__(self, defer=False):
         self.stopped_value = 0
@@ -30,7 +30,7 @@ class SWTimer:
             return time.perf_counter() - self.start_count + self.stopped_value
         if self.stopped:
             return self.stopped_value            
-        return "SWTimer not started, call start()"
+        return "StopWatchTimer not started, call start()"
 
     def lap(self):
         lap_time = self.current()
@@ -60,7 +60,7 @@ class SWTimer:
     def __repr__(self) -> str:
         class_name = self.__class__.__name__
         if self.defer:
-            return f"{class_name}(SWTimer not started yet)"        
+            return f"{class_name}(StopWatchTimer not started yet)"        
         begin = time.ctime(self.start_time)
         current_timer = self.current()
         return f"{class_name}(Inception: {begin}, Current timer value: {str(timedelta(seconds=current_timer))})"
@@ -72,8 +72,8 @@ class Timer:
         self._start_time = None
 
     def start(self):
-        if not self._start_time:
-            raise TimeError(f"Timer in user, use stop() method")
+        if self._start_time is not None:
+            raise TimeError(f"Timer in use, employ stop() method")
         self._start_time = time.perf_counter()
 
     def stop(self):
@@ -81,4 +81,4 @@ class Timer:
             raise TimeError(f"Timer not started, use start()")
         elapsed = time.perf_counter() - self._start_time
         self._start_time = None
-        print(f"Timer {__class__} elapsed time: {elapsed:0.4f} seconds")
+        return elapsed

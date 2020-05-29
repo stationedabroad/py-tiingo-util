@@ -2,7 +2,7 @@ import os.path
 import pytest
 import time
 
-from timer import Timer
+from timer import Timer, StopWatchTimer
 
 LAPS = 3
 
@@ -12,21 +12,21 @@ def some_laps(laps=LAPS):
 
 @pytest.fixture
 def timer_obj(some_laps):
-    t = Timer()
-    for lap in range(some_laps):
+    t = StopWatchTimer
+    for _ in range(some_laps):
         time.sleep(1)
         t.lap()
     return t
 
 def test_timer_start():
-    timer = Timer()
+    timer = StopWatchTimer
     assert timer.start_time > 0 and type(timer.start_time) == float
     assert timer.start_count > 0 and type(timer.start_count) == float
     assert timer._lap_number == 0
     assert timer.laps == None
 
 def test_timer_stop():
-    timer = Timer()
+    timer = StopWatchTimer
     time.sleep(1)
     timer.stop()
     time.sleep(2)
