@@ -2,7 +2,11 @@ import time
 from collections import OrderedDict
 from datetime import timedelta
 
-class Timer:
+class TimeError(Exception):
+    """ Custom exception for timer based exceptions """
+
+
+class SWTimer:
 
     def __init__(self, defer=False):
         self.stopped_value = 0
@@ -26,7 +30,7 @@ class Timer:
             return time.perf_counter() - self.start_count + self.stopped_value
         if self.stopped:
             return self.stopped_value            
-        return "Timer not started, call start()"
+        return "SWTimer not started, call start()"
 
     def lap(self):
         lap_time = self.current()
@@ -56,7 +60,19 @@ class Timer:
     def __repr__(self) -> str:
         class_name = self.__class__.__name__
         if self.defer:
-            return f"{class_name}(Timer not started yet)"        
+            return f"{class_name}(SWTimer not started yet)"        
         begin = time.ctime(self.start_time)
         current_timer = self.current()
         return f"{class_name}(Inception: {begin}, Current timer value: {str(timedelta(seconds=current_timer))})"
+
+
+
+class Timer:
+    def __init__(self):
+        self._start_time = None
+
+    def start(self):
+        pass
+
+    def stop(self):
+        pass        
