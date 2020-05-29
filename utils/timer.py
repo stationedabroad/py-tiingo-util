@@ -72,7 +72,13 @@ class Timer:
         self._start_time = None
 
     def start(self):
-        pass
+        if not self._start_time:
+            raise TimeError(f"Timer in user, use stop() method")
+        self._start_time = time.perf_counter()
 
     def stop(self):
-        pass        
+        if self._start_time is None:
+            raise TimeError(f"Timer not started, use start()")
+        elapsed = time.perf_counter() - self._start_time
+        self._start_time = None
+        print(f"Timer {__class__} elapsed time: {elapsed:0.4f} seconds")
