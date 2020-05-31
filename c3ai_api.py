@@ -25,11 +25,13 @@ metrics = ["ECDC_ConfirmedCases",
            "WHO_ConfirmedDeaths",
            ]
 
+# mandatory header for api
 headers = {
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
 
+# main api resource
 resource = "https://api.c3.ai/covid/api/1/outbreaklocation/evalmetrics"
 
 def main(countries=None):
