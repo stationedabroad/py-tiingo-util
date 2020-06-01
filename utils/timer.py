@@ -7,7 +7,12 @@ class TimeError(Exception):
 
 
 class StopWatchTimer:
-
+    """ Stop Watch class which sort of mimics a stop watch (think apple iphone stop watch).
+        With laps and reset
+        Usage:
+        At initialisation the timer starts, unless you pass defer=True, in which case an 
+        instantiaited object exists to be started at your convenience with start()
+    """
     def __init__(self, defer=False):
         self.stopped_value = 0
         self.stopped = self.defer = defer
@@ -68,6 +73,7 @@ class StopWatchTimer:
 
 
 class Timer:
+    """ Basic timer class to start and stop and return elpased time of code execution """
     def __init__(self):
         self._start_time = None
 
