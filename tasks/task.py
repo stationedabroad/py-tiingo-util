@@ -25,3 +25,9 @@ def test_asdict():
         'id': 212
     }
     assert d_task == expected
+
+def test_replace():
+    t_before = Task('init task', 'mahmoods', False)    
+    t_after = t_before._replace(id=101, done=True)
+    expected = Task('init task', 'mahmoods', True, 101)    
+    assert t_after == expected
