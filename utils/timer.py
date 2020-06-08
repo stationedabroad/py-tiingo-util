@@ -37,8 +37,7 @@ class StopWatchTimer:
         if not self.defer:
             return time.perf_counter() - self.start_count + self.stopped_value
         if self.stopped:
-            return self.stopped_value            
-        return "StopWatchTimer not started, call start()"
+            raise StopWatchTimerError("StopWatchTimer not started, call start()")
 
     def lap(self):
         lap_time = self.current()
