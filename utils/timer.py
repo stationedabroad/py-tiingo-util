@@ -5,6 +5,9 @@ from datetime import timedelta
 class TimeError(Exception):
     """ Custom exception for timer based exceptions """
 
+class StopWatchTimerError(TimeError):
+    """ Custom exception for stopwatch based exceptions """
+
 
 class StopWatchTimer:
     """ Stop Watch class which sort of mimics a stop watch (think apple iphone stop watch).
