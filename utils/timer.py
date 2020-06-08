@@ -30,6 +30,8 @@ class StopWatchTimer:
             self.reset()
 
     def stop(self):
+        if self.stopped:
+            raise StopWatchTimerError("StopWatchTimer already stopped, call start()")
         self.stopped_value = self.current()
         self.defer = self.stopped = True   
 
