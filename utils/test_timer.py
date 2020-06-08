@@ -22,6 +22,11 @@ def timer_obj(some_laps):
         t.lap()
     return t
 
+@pytest.fixture
+def deferred_timer():
+    t = StopWatchTimer(defer=True)
+    return t
+
 def test_timer_start():
     timer = StopWatchTimer()
     assert timer.start_time > 0 and type(timer.start_time) == float
@@ -61,7 +66,12 @@ def test_reset(timer_obj):
     assert timer.start_count != st_count
     assert len(timer._laps ) == 0
 
-def test_deferred_start():
-    timer = StopWatchTimer(defer=True)
+def test_deferred_start(deferred_timer):
+    timer = deferred_timer
     with pytest.raises(StopWatchTimerError):
         timer.current()
+
+def test_stop_when_already_stopped(deferred_timer):
+    timer = deferred_timer
+    with pytest.raises(StopWatchTimerError):
+        timer.stop()
