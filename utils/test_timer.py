@@ -2,7 +2,11 @@ import os.path
 import pytest
 import time
 
-from .timer import Timer, StopWatchTimer
+from .timer import (
+    Timer, 
+    StopWatchTimer, 
+    StopWatchTimerError
+)
 
 LAPS = 3
 
@@ -57,4 +61,7 @@ def test_reset(timer_obj):
     assert timer.start_count != st_count
     assert len(timer._laps ) == 0
 
-
+def test_deferred_start():
+    timer = StopWatchTimer(defer=True)
+    with pytest.raises(StopWatchTimerError):
+        timer.current()
