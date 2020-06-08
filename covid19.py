@@ -12,7 +12,7 @@ api_header = {
     "Content-Type": "application/json",
 }
 
-def get_covid_country_data(resource, country, query, source, header=api_header):
+def get_covid_country_data(resource: str, country: str, query: str, source: str, header=api_header) -> dict:
     t = Timer()
     logging.basicConfig(level=logging.INFO, 
                                  filename=log_file, 
