@@ -66,12 +66,14 @@ def test_reset(timer_obj):
     assert timer.start_count != st_count
     assert len(timer._laps ) == 0
 
-def test_deferred_start(deferred_timer):
+def test_current_on_deferred_start(deferred_timer):
+    """ check current timer on a deferred start stopWatch, should raise custom error """
     timer = deferred_timer
     with pytest.raises(StopWatchTimerError):
         timer.current()
 
 def test_stop_when_already_stopped(deferred_timer):
+    """ stop a stop watched when already stopped, should raise custom error """
     timer = deferred_timer
     with pytest.raises(StopWatchTimerError):
         timer.stop()

@@ -44,7 +44,7 @@ def main(countries=None):
                     "expressions": [metric],
                     "interval": "DAY",
                     "start": "2020-01-01",
-                    "end": "2020-06-08"
+                    "end": "2020-06-10"
                 }
             }
             res = get_covid_country_data(resource, country, query, metric)
