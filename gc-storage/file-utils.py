@@ -15,10 +15,12 @@ class FileProcessor:
     def __init__(self, resource_path):
         self.resource_path = resource_path
         self.client = storage.Client.from_service_account_json(json_credentials_path=APP_CREDENTIALS_JSON, project=APP_PROJECT) 
-        self.bucket = self.client.get_bukcet(self.resource_path)
+        self.bucket = self.client.get_bucket(self.resource_path)
 
     def run(self):
-        pass
+        return [self.process_blob(blob) for blob in self.bucket.list_blobs()]
 
-    def process_nlob(self):
-        pass
+    def process_blob(self, blob):
+        with BytesIO() as blob_contents:
+            blob.download_to_file(blob_contents)
+            return md5(blob_contents.getvalue()).hexdigest()
