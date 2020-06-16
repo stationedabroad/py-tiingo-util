@@ -1,3 +1,4 @@
+from unittest import main as testmain
 from unittest.mock import Mock
 from unittest.mock import patch
 from unittest import TestCase
@@ -5,7 +6,7 @@ from file_utils import FileProcessor
 
 class TestFileProcessor(TestCase):
     def test_run_returns_md5(self):
-        with patch('file_processor.storage'):
+        with patch('file_utils.storage'):
             fp = FileProcessor('some/bucket')
             with patch.object(fp, 'bucket') as mock_bucket:
                 mock_blob = Mock(name='mock_blob')
@@ -15,3 +16,6 @@ class TestFileProcessor(TestCase):
                 mock_bucket.list_blobs.return_value = [mock_blob]
                 result = fp.run()
                 self.assertEqual(result, ['111'])
+
+if __name__ == '__main__':
+    testmain()                
