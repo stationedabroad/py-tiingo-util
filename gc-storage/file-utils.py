@@ -17,6 +17,9 @@ class FileProcessor:
         self.client = storage.Client.from_service_account_json(json_credentials_path=APP_CREDENTIALS_JSON, project=APP_PROJECT) 
         self.bucket = self.client.get_bucket(self.resource_path)
 
+    def __len__(self):
+        return len([1 for _ in self.bucket.list_blobs()])   
+
     def run(self):
         return [self.process_blob(blob) for blob in self.bucket.list_blobs()]
 
