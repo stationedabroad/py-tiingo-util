@@ -15,7 +15,7 @@ class TestFileProcessor(TestCase):
                 mock_blob.download_to_file = mock_blob_download_to_file
                 mock_bucket.list_blobs.return_value = [mock_blob]
                 result = fp.run()
-                self.assertEqual(result, ['111'])
+                self.assertEqual(result, ['53a195336dfdd9034b8371408f2d7729'])
 
 if __name__ == '__main__':
     testmain()                
