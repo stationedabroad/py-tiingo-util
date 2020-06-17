@@ -18,7 +18,7 @@ class FileProcessor:
         self.bucket = self.client.get_bucket(self.resource_path)
 
     def __len__(self):
-        return len([1 for _ in self.bucket.list_blobs()])   
+        return sum([1 for _ in self.bucket.list_blobs()])   
 
     def run(self):
         return [self.process_blob(blob) for blob in self.bucket.list_blobs()]
