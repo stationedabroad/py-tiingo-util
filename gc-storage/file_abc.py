@@ -5,5 +5,5 @@ from typing import Iterable
 class FileRepoABC(ABC):
 
     @abstractmethod
-    def get_files(self, path: str) -> Iterable[BytesIO]:
+    def get_files(self, path: str = None) -> Iterable[BytesIO]:
         pass
