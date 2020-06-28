@@ -9,6 +9,7 @@ verify_ssl = true
 requests = "*"
 ujson = "*"
 gcloud = "*"
+typing = "*"
 
 [requires]
 python_version = "3.7"
