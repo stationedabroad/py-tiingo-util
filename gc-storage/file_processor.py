@@ -8,7 +8,7 @@ class FileProcessor:
         self.resource_path = path
         self.repo = repo
 
-    def __len__(self):
+    def __len__(self) -> int:
         return sum([1 for _ in self.repo.get_files(self.resource_path)])  
 
     def run(self) -> List[str]:
