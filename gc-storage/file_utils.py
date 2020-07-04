@@ -7,8 +7,7 @@ from pathlib import Path
 # to use credentials drop gc-cloud service accoutn creds into the filder hich this __file__ resides in
 APP_PROJECT = os.getenv("GCLOUD_PROJECT")
 APP_CREDENTIALS_JSON = os.getenv("GCLOUD_STORAGE_CRED")
-
-my_resource_bucket = "covid19-datafiles"
+COVID_BUCKET = "covid19-datafiles"
 
 
 class FileProcessor:
