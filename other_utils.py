@@ -8,3 +8,6 @@ def custom_decorator(f: F) -> F:
         Takes a func, and returns a func - just like a decorator.
     """
     pass
+
+for d in dir(custom_decorator):
+    print(d)
