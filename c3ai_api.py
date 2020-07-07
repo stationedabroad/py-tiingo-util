@@ -60,7 +60,7 @@ if __name__ == '__main__':
                 raise ValueError(f"{cli_country} not valid location for api")
         main(sys.argv[1:])
     else:
-        print("Enter particular country (comma separated)")
+        print("Enter specific country (comma separated)")
         cli_countries = list(input().split(','))
         cli_countries = cli_countries or countries
         main(countries=cli_countries)
