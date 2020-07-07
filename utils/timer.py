@@ -1,4 +1,5 @@
 import time
+import sentinel
 from collections import OrderedDict
 from datetime import timedelta
 
@@ -6,8 +7,9 @@ class TimeError(Exception):
     """ Custom exception for timer based exceptions """
 
 class StopWatchTimerError(TimeError):
-    """ Custom exception for stopwatch based exceptions """
+    """ Custom  exception for stopwatch based exceptions """
 
+Nothing = sentinel.create('Nothing')
 
 class StopWatchTimer:
     """ Stop Watch class which sort of mimics a stop watch (think apple iphone stop watch).
@@ -80,7 +82,7 @@ class StopWatchTimer:
 class Timer:
     """ Basic timer class to start and stop and return elpased time of code execution """
     def __init__(self):
-        self._start_time = None
+        self._start_time = Nothing
 
     def start(self):
         if self._start_time is not None:
