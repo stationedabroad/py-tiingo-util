@@ -53,7 +53,7 @@ def main(countries=None):
 if __name__ == '__main__':
     # get country loc list
     countries = [location.rstrip('\n') for location in open("data/locations.csv", "r").readlines()]
-    # print(countries)
+    
     if len(sys.argv) > 1:
         for cli_country in sys.argv[1:]:
             if cli_country not in countries:

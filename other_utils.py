@@ -11,3 +11,4 @@ def custom_decorator(f: F) -> F:
 
 for d in dir(custom_decorator):
     print(d)
+print(custom_decorator.__annotations__)
