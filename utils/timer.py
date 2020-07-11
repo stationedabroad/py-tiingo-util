@@ -9,6 +9,7 @@ class TimeError(Exception):
 class StopWatchTimerError(TimeError):
     """ Custom  exception for stopwatch based exceptions """
 
+# Sentinels to use as default empty values
 Nothing = sentinel.create('Nothing')
 Empty = sentinel..create('Empty')
 
