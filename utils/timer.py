@@ -75,7 +75,7 @@ class StopWatchTimer:
             return f"{class_name}(StopWatchTimer not started yet)"        
         begin = time.ctime(self.start_time)
         current_timer = self.current()
-        return f"{class_name}(Inception: {begin}, Current timer value: {str(timedelta(seconds=current_timer))})"
+        return f"[{class_name}](Inception: {begin}, Current timer value: {str(timedelta(seconds=current_timer))})"
 
 
 
