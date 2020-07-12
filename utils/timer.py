@@ -12,6 +12,7 @@ class StopWatchTimerError(TimeError):
 # Sentinels to use as default empty values
 Nothing = sentinel.create('Nothing')
 Empty = sentinel.create('Empty')
+Void = sentinel.create('Void')
 
 class StopWatchTimer:
     """ Stop Watch class which sort of mimics a stop watch (think apple iphone stop watch).
@@ -20,7 +21,7 @@ class StopWatchTimer:
         At initialisation the timer starts, unless you pass defer=True, in which case an 
         instantiaited object exists to be started at your convenience with start()
     """
-    def __init__(self, name: str = Empty, defer: bool = False) -> None:
+    def __init__(self, name: str = Empty, defer: bool = False) -> Void:
         self.stopped_value = 0
         self.stopped = self.defer = defer
         if not self.defer:
