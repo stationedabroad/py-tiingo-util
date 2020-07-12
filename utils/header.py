@@ -1,3 +1,5 @@
+import typing
+
 def headline(text: str, centered: bool = False) -> str:
     if not centered:
         return f"{text.title()}\n{'-' * len(text)}"

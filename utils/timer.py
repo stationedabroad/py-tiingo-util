@@ -20,7 +20,7 @@ class StopWatchTimer:
         At initialisation the timer starts, unless you pass defer=True, in which case an 
         instantiaited object exists to be started at your convenience with start()
     """
-    def __init__(self, name: str = Empty, defer: bool = False):
+    def __init__(self, name: str = Empty, defer: bool = False) -> None:
         self.stopped_value = 0
         self.stopped = self.defer = defer
         if not self.defer:
