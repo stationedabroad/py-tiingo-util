@@ -22,11 +22,12 @@ class StopWatchTimer:
         instantiaited object exists to be started at your convenience with start()
     """
     def __init__(self, name: str = Empty, defer: bool = False) -> Void:
-        self.stopped_value = 0
-        self.stopped = self.defer = defer
+        self.stopped_value: float = 0
+        self.defer: bool = defer
+        self.stopped: bool = self.defer
         if not self.defer:
             self.reset()
-        self.name = name 
+        self.name: str = name 
 
     def start(self):
         if self.stopped:
