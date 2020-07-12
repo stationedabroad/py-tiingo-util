@@ -11,6 +11,7 @@ ujson = "*"
 gcloud = "*"
 typing = "*"
 sentinel = "*"
+mypy = "*"
 
 [requires]
 python_version = "3.7"
