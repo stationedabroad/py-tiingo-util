@@ -29,14 +29,14 @@ class StopWatchTimer:
             self.reset()
         self.name: str = name 
 
-    def start(self):
+    def start(self) -> Void:
         if self.stopped:
             self.start_count = time.perf_counter()
             self.stopped = self.defer = False            
         else:            
             self.reset()
 
-    def stop(self):
+    def stop(self) -> Void:
         if self.stopped:
             raise StopWatchTimerError("StopWatchTimer already stopped, call start()")
         self.stopped_value = self.current()
@@ -49,7 +49,7 @@ class StopWatchTimer:
             raise StopWatchTimerError("StopWatchTimer not started, call start()")
         return self.stopped_value
 
-    def lap(self):
+    def lap(self) -> Void:
         lap_time = self.current()
         overall_dtime = str(timedelta(seconds=lap_time))
         self._laps[self._lap_number] = (overall_dtime, lap_time)
@@ -64,11 +64,11 @@ class StopWatchTimer:
         for lap in self._laps.items():
             print(f"Lap: {lap[0]} -> {lap[1]}")
 
-    def _reset_lap(self):
+    def _reset_lap(self) -> Void:
         self.start_time = time.time()
         self.start_count = time.perf_counter()   
 
-    def reset(self):
+    def reset(self) -> Void:
         self.start_time = time.time()
         self.start_count = time.perf_counter()   
         self._lap_number = 0
