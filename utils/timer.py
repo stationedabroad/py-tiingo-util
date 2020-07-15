@@ -86,15 +86,15 @@ class StopWatchTimer:
 
 class Timer:
     """ Basic timer class to start and stop and return elpased time of code execution """
-    def __init__(self):
+    def __init__(self) -> Void:
         self._start_time = Nothing
 
-    def start(self):
+    def start(self) -> Void:
         if self._start_time is not None:
             raise TimeError(f"Timer in use, employ stop() method")
         self._start_time = time.perf_counter()
 
-    def stop(self):
+    def stop(self) -> float:
         if self._start_time is None:
             raise TimeError(f"Timer not started, use start()")
         elapsed = time.perf_counter() - self._start_time
