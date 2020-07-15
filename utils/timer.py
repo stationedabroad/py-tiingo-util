@@ -90,13 +90,13 @@ class Timer:
         self._start_time = Nothing
 
     def start(self) -> Void:
-        if self._start_time is not None:
+        if self._start_time is not Nothing:
             raise TimeError(f"Timer in use, employ stop() method")
         self._start_time = time.perf_counter()
 
     def stop(self) -> float:
-        if self._start_time is None:
+        if self._start_time is Nothing:
             raise TimeError(f"Timer not started, use start()")
         elapsed = time.perf_counter() - self._start_time
-        self._start_time = None
+        self._start_time = Nothing
         return elapsed
