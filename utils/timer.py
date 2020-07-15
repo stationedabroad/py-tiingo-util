@@ -94,7 +94,7 @@ class Timer:
             raise TimeError(f"Timer in use, employ stop() method")
         self._start_time = time.perf_counter()
 
-    def stop(self) -> float:
+    def stop(self) -> [TimeError, float]:
         if self._start_time is Nothing:
             raise TimeError(f"Timer not started, use start()")
         elapsed = time.perf_counter() - self._start_time
