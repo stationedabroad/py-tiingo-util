@@ -87,7 +87,7 @@ class StopWatchTimer:
 class Timer:
     """ Basic timer class to start and stop and return elpased time of code execution """
     def __init__(self) -> Void:
-        self._start_time = Nothing
+        self._start_time: float = Nothing
 
     def start(self) -> Void:
         if self._start_time is not Nothing:
