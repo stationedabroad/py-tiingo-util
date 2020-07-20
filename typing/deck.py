@@ -3,6 +3,7 @@ from typing import (
     Dict,
     List,
     Tuple,
+    Sequence,
 )
 
 SUITS = "♠ ♡ ♢ ♣".split()
@@ -29,5 +30,10 @@ def play():
         card_str = " ".join(f"{s}{r}" for (s, r) in cards)
         print(f"{name}: {card_str}")
 
+
+def square(elems: Sequence[float]) -> List[float]:
+    return [n*n for n in elems]
+
 if __name__ == "__main__":
     play()
+    print(square((1,2,3,4)))
