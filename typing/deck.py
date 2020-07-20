@@ -1,4 +1,9 @@
 import random
+from typing import (
+    Dict,
+    List,
+    Tuple,
+)
 
 SUITS = "♠ ♡ ♢ ♣".split()
 RANKS = "2 3 4 5 6 7 8 9 10 J Q K A".split()
@@ -16,7 +21,7 @@ def deal_hands(deck):
 
 def play():
     """Play a 4-player card game"""
-    deck = create_deck(shuffle=True)
+    deck = create_deck(shuffle=False)
     names = "P1 P2 P3 P4".split()
     hands = {n: h for n, h in zip(names, deal_hands(deck))}
 
