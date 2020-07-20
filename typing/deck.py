@@ -8,7 +8,7 @@ from typing import (
 SUITS = "♠ ♡ ♢ ♣".split()
 RANKS = "2 3 4 5 6 7 8 9 10 J Q K A".split()
 
-def create_deck(shuffle=False):
+def create_deck(shuffle: bool = False) -> List[Tuple[str, str]]:
     """Create a new deck of 52 cards"""
     deck = [(s, r) for r in RANKS for s in SUITS]
     if shuffle:
@@ -21,7 +21,7 @@ def deal_hands(deck):
 
 def play():
     """Play a 4-player card game"""
-    deck = create_deck(shuffle=False)
+    deck = create_deck(shuffle=True)
     names = "P1 P2 P3 P4".split()
     hands = {n: h for n, h in zip(names, deal_hands(deck))}
 
