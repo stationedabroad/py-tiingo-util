@@ -2,6 +2,7 @@ import logging
 import requests
 import ujson
 
+from typing import Dict
 from utils.timer import Timer
 
 
@@ -12,7 +13,7 @@ api_header = {
     "Content-Type": "application/json",
 }
 
-def get_covid_country_data(resource: str, country: str, query: str, source: str, header=api_header) -> dict:
+def get_covid_country_data(resource: str, country: str, query: str, source: str, header=api_header) -> Dict:
     t = Timer()
     logging.basicConfig(level=logging.INFO, 
                                  filename=log_file, 
