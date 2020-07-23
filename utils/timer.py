@@ -21,7 +21,7 @@ class StopWatchTimer:
         At initialisation the timer starts, unless you pass defer=True, in which case an 
         instantiaited object exists to be started at your convenience with start()
     """
-    def __init__(self, name: str = Empty, defer: bool = False) -> Void:
+    def __init__(self, name: str = Empty, defer: bool = False) -> None:
         self.stopped_value: float = 0
         self.defer: bool = defer
         self.stopped: bool = self.defer
@@ -29,14 +29,14 @@ class StopWatchTimer:
             self.reset()
         self.name: str = name 
 
-    def start(self) -> Void:
+    def start(self) -> None:
         if self.stopped:
             self.start_count = time.perf_counter()
             self.stopped = self.defer = False            
         else:            
             self.reset()
 
-    def stop(self) -> Void:
+    def stop(self) -> None:
         if self.stopped:
             raise StopWatchTimerError("StopWatchTimer already stopped, call start()")
         self.stopped_value = self.current()
@@ -49,7 +49,7 @@ class StopWatchTimer:
             raise StopWatchTimerError("StopWatchTimer not started, call start()")
         return self.stopped_value
 
-    def lap(self) -> Void:
+    def lap(self) -> None:
         lap_time = self.current()
         overall_dtime = str(timedelta(seconds=lap_time))
         self._laps[self._lap_number] = (overall_dtime, lap_time)
@@ -64,11 +64,11 @@ class StopWatchTimer:
         for lap in self._laps.items():
             print(f"Lap: {lap[0]} -> {lap[1]}")
 
-    def _reset_lap(self) -> Void:
+    def _reset_lap(self) -> None:
         self.start_time = time.time()
         self.start_count = time.perf_counter()   
 
-    def reset(self) -> Void:
+    def reset(self) -> None:
         self.start_time = time.time()
         self.start_count = time.perf_counter()   
         self._lap_number = 0
@@ -86,15 +86,15 @@ class StopWatchTimer:
 
 class Timer:
     """ Basic timer class to start and stop and return elpased time of code execution """
-    def __init__(self) -> Void:
+    def __init__(self) -> None:
         self._start_time: float = Nothing
 
-    def start(self) -> Void:
+    def start(self) -> None:
         if self._start_time is not Nothing:
             raise TimeError(f"Timer in use, employ stop() method")
         self._start_time = time.perf_counter()
 
-    def stop(self) -> [TimeError, float]:
+    def stop(self) -> float:
         if self._start_time is Nothing:
             raise TimeError(f"Timer not started, use start()")
         elapsed = time.perf_counter() - self._start_time
