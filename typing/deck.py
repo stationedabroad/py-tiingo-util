@@ -1,5 +1,6 @@
 import random
 from typing import (
+    Any,
     Dict,
     List,
     Tuple,
@@ -23,9 +24,8 @@ def deal_hands(deck) -> Tuple[Deck, Deck, Deck, Deck]:
     """Deal the cards in the deck into four hands"""
     return (deck[0::4], deck[1::4], deck[2::4], deck[3::4])
 
-def choose(items):
+def choose(items: Sequence[Any]) -> Any:
     return random.choice(items)
-
 
 def play() -> None:
     """Play a 4-player card game"""
