@@ -4,6 +4,7 @@ import ujson
 
 from typing import Dict
 from utils.timer import Timer
+from requests.status_codes.codes import ALL_OK
 
 
 log_file = "./log/api_log.log"
@@ -25,7 +26,7 @@ def get_covid_country_data(resource: str, country: str, query: str, source: str,
     result = requests.post(resource, json=query, headers=header)
     api_read_elapsed = t.stop()
 
-    if result.status_code != 200:
+    if result.status_code != ALL_OK:
         logging.error(f"API call for query {query} for endpoint {resource} failed, please re-run")
         return result
     
