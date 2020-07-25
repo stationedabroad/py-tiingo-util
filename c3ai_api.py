@@ -34,7 +34,7 @@ headers = {
 # main api resource
 resource = "https://api.c3.ai/covid/api/1/outbreaklocation/evalmetrics"
 
-def main(countries=None):
+def main(countries):
     for country in countries:
         for metric in metrics:
 
