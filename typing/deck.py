@@ -43,4 +43,3 @@ def square(elems: Sequence[float]) -> List[float]:
 
 if __name__ == "__main__":
     play()
-    print(square((1,2,3,4)))
