@@ -4,7 +4,8 @@ from hashlib import md5
 from gcloud import storage
 from pathlib import Path
 
-# to use credentials drop gc-cloud service accoutn creds into the filder hich this __file__ resides in
+# to use credentials drop gc-cloud service account creds into the folder which this __file__ resides in
+# - env variables: GCLOUD_PROJECT, GCLOUD_STORAGE_CRED
 APP_PROJECT = os.getenv("GCLOUD_PROJECT")
 APP_CREDENTIALS_JSON = os.getenv("GCLOUD_STORAGE_CRED")
 COVID_BUCKET = "covid19-datafiles"
