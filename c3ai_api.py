@@ -4,9 +4,6 @@ import ujson
 
 from covid19 import get_covid_country_data
 
-# add countries
-# countries = [location for location in open("data/locations.csv", "r").readlines()]
-
 # add metrics: ECDC_ConfirmedCases, ECDC_ConfirmedDeaths for example from ECDC (amongst others)
 metrics = ["ECDC_ConfirmedCases", 
            "ECDC_ConfirmedDeaths", 
