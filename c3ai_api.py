@@ -57,7 +57,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         for cli_country in sys.argv[1:]:
             if cli_country not in countries:
-                raise ValueError(f"{cli_country} not valid location for api")
+                raise ValueError(f"Country '{cli_country}' not valid location for api metric")
         main(sys.argv[1:])
     else:
         print("Enter specific country (comma separated)")
