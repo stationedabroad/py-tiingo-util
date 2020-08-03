@@ -2,6 +2,7 @@
 
 async def app(scope, receive, send):
     assert scope['type'] == 'http'
+    print(f" Scoep param details ==> {scope}")
     await send({
         'type': 'http.response.start',
         'status': 200,
