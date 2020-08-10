@@ -16,4 +16,5 @@ names = ["Guido", "Jukka", "Ivan"]
 reveal_type(names)
 
 name = choose(names)
-reveal_type(name)
+print(f" name is: {name} type is {reveal_type(name)}")
+
