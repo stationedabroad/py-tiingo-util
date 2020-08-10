@@ -16,5 +16,10 @@ names = ["Guido", "Jukka", "Ivan"]
 reveal_type(names)
 
 name = choose(names)
-print(f" name is: {name} type is {reveal_type(name)}")
+reveal_type(names)
+
+reveal_type([1,2,3])
+reveal_type([True, False, True])
+reveal_type([True, 0.21, 4.3])
+reveal_type([4,5, "typing"])
 
