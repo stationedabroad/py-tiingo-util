@@ -4,6 +4,7 @@ from typing import (
     Dict,
     List,
     Tuple,
+    TypeVar,
     Sequence,
 )
 
@@ -12,6 +13,8 @@ RANKS = "2 3 4 5 6 7 8 9 10 J Q K A".split()
 
 Card = Tuple[str, str]
 Deck = List[Card]
+
+Choosable = TypeVar("Choosable")
 
 def create_deck(shuffle: bool = False) -> Deck:
     """Create a new deck of 52 cards"""
