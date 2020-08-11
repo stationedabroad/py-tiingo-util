@@ -5,7 +5,7 @@ from typing import (
         )
 
 
-Choosable = TypeVar("Choosable")
+Choosable = TypeVar("Choosable", str, float)
 
 
 def choose(items: Sequence[Choosable]) -> Choosable:
@@ -22,4 +22,4 @@ reveal_type([1,2,3])
 reveal_type([True, False, True])
 reveal_type([True, 0.21, 4.3])
 reveal_type([4,5, "typing"])
-
+reveal_type([False, False])
