@@ -5,7 +5,7 @@ from typing import (
         )
 
 
-Choosable = TypeVar("Choosable", str, float)
+Choosable = TypeVar("Choosable", str, int)
 
 
 def choose(items: Sequence[Choosable]) -> Choosable:
