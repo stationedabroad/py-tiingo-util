@@ -15,6 +15,9 @@ def choose(items: Sequence[Choosable]) -> Choosable:
 names = ["Guido", "Jukka", "Ivan"]
 reveal_type(names)
 
+more_names = ("Danny", "John", "Jules")
+reveal_type(more_names)
+
 name = choose(names)
 reveal_type(names)
 
