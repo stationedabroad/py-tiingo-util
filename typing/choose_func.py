@@ -18,6 +18,9 @@ reveal_type(names)
 more_names = ("Danny", "John", "Jules")
 reveal_type(more_names)
 
+set_more_names = set(["me", "you", "us", "me"])
+reveal_type(set_more_names)
+
 name = choose(names)
 reveal_type(names)
 
