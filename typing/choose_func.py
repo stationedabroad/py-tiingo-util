@@ -1,4 +1,5 @@
-import random
+from random import random
+from array import array
 from typing import (
         Sequence, 
         TypeVar
@@ -20,6 +21,9 @@ reveal_type(more_names)
 
 set_more_names = set(["me", "you", "us", "me"])
 reveal_type(set_more_names)
+
+array_float = array('d', (random() for i in range(10)))
+reveal_types(array_float)
 
 name = choose(names)
 reveal_type(names)
