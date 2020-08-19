@@ -7,4 +7,8 @@ print(mem2.tolist())
 
 mem2[1,1] = 100
 mem2[1,2] = 100
-print(mem2.tolist())
+print(f"cast one: {mem2.tolist()}")
+mem3 = mem1.cast('B', [10, 10])
+print(f"cast two: {mem3.tolist()}")
+
+
