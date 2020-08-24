@@ -5,8 +5,9 @@ mem1 = memoryview(octets)
 mem2 = mem1.cast('B', [5, 20])
 print(mem2.tolist())
 
-mem2[1,1] = 100
-mem2[1,2] = 100
+for i in range(20):
+    mem2[1, i] = 100
+
 print(f"cast one: {mem2.tolist()}")
 mem3 = mem1.cast('B', [10, 10])
 
