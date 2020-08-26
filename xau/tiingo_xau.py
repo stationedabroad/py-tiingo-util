@@ -14,5 +14,6 @@ token = os.getenv('TIINGO_KEY')
 # Golden Start resources - GSS
 ticker = 'GSS'
 
-requestResponse = requests.get(f"https://api.tiingo.com/iex/?tickers={ticker},spy&token={token}", headers=headers)
-print(requestResponse.json()[0])
+response = requests.get(f"https://api.tiingo.com/iex/?tickers={ticker},spy&token={token}", headers=headers)
+if response.status_code == 200:
+    print(requestResponse.json()[0])
