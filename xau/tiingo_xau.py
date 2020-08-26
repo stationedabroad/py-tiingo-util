@@ -1,6 +1,10 @@
 import os
 import requests
 
+"""
+    Set tiingo API KEY from portal, in env variable TIINGO_KEY
+"""
+
 headers = {
     'Content-Type': 'application/json'
 }
