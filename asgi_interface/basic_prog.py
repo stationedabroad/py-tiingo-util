@@ -2,12 +2,13 @@ import uvicorn
 
 PORT = 8000
 HOST = "127.0.0.1"
+OK = 200
 
 async def app(scope, receive, send):
     assert scope['type'] == 'http'
     await send({
         'type': 'http.response.start',
-        'status': 200,
+        'status': OK,
         'headers': [
             [b'content-type', b'text/plain'],
         ],

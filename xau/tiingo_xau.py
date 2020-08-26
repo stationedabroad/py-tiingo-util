@@ -6,7 +6,9 @@ headers = {
 }
 
 token = os.getenv('TIINGO_KEY')
-ticker = 'CMCL'
+# Barrick - GOLD
+# Golden Start resources - GSS
+ticker = 'GSS'
 
 requestResponse = requests.get(f"https://api.tiingo.com/iex/?tickers={ticker},spy&token={token}", headers=headers)
-print(requestResponse.json())
+print(requestResponse.json()[0])
