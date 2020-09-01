@@ -7,6 +7,9 @@ APP_CREDENTIALS_JSON = os.getenv("GCLOUD_STORAGE_CRED")
 COVID_BUCKET = "covid19-datafiles"
 
 def main():
+    """ 
+        Use custom file processor to pull bcket hashes
+    """
     gcs_repo = GCSFileRepo(APP_CREDENTIALS_JSON, COVID_BUCKET)
     fp = FileProcessor(gcs_repo, None)
     gcs_bucket_hashes = fp.run()
