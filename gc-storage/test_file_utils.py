@@ -5,7 +5,9 @@ from unittest import TestCase
 from file_utils import FileProcessor
 
 class TestFileProcessor(TestCase):
+
     def test_run_returns_md5(self):
+
         with patch('file_utils.storage'):
             fp = FileProcessor('some/bucket')
             with patch.object(fp, 'bucket') as mock_bucket:
