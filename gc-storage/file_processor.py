@@ -4,7 +4,7 @@ from typing import List
 from file_abc import FileRepoABC
 
 class FileProcessor:
-    def __init__(self, repo: FileRepoABC, path: str = None) -> None:
+    def __init__(self, repo: FileRepoABC, path: str = None):
         self.resource_path = path
         self.repo = repo
 
