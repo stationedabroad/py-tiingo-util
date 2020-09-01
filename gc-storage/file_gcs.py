@@ -4,7 +4,8 @@ from typing import Iterable
 from file_abc import FileRepoABC
 
 class GCSFileRepo(FileRepoABC):
-    def __init__(self, credentials_path: str, bucket_name: str) -> None:
+
+    def __init__(self, credentials_path: str, bucket_name: str):
         self.bucket_name = bucket_name
         self._client = storage.Client.from_service_account_json(json_credentials_path=credentials_path)
         self.bucket = self._client.get_bucket(self.bucket_name)
