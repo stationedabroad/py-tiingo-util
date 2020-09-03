@@ -11,5 +11,5 @@ def get_timer():
 timer = get_timer()
 
 @app.get("/timer")
-def timer() -> dict:
+def timer():
       return {"Timer": next(timer) , "current_time": ""}
