@@ -16,7 +16,7 @@ async def app(scope, receive, send):
 
     await send({
         'type': 'http.response.body',
-        'body': b'programatic tiingo started ...\n',
+        'body': bytes('programatic tiingo started ...\n', encoding='utf-8'),
     })
 
 if __name__ == '__main__':
