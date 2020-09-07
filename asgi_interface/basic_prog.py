@@ -8,7 +8,7 @@ async def app(scope, receive, send):
     assert scope['type'] == 'http'
     await send({
         'type': 'http.response.start',
-        'status': OK,
+        'status': OK, # 200
         'headers': [
             [b'content-type', b'text/plain'],
         ],
