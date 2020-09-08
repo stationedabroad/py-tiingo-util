@@ -1,5 +1,7 @@
 import uvicorn
 
+
+# host info
 PORT = 8000
 HOST = "127.0.0.1"
 OK = 200
@@ -8,7 +10,7 @@ async def app(scope, receive, send):
     assert scope['type'] == 'http'
     await send({
         'type': 'http.response.start',
-        'status': OK,
+        'status': OK, # 200
         'headers': [
             [b'content-type', b'text/plain'],
         ],
@@ -16,7 +18,7 @@ async def app(scope, receive, send):
 
     await send({
         'type': 'http.response.body',
-        'body': b'programatic tiingo started ...\n',
+        'body': bytes('programatic tiingo started ...\n', encoding='utf-8'),
     })
 
 if __name__ == '__main__':
