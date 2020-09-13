@@ -12,5 +12,5 @@ async def app(scope, receive, send):
 
     await send({
         'type': 'http.response.body',
-        'body': b'tiingo started ...\n',
+        'body': b'tiingo gunicorn started ...\n',
     })
