@@ -1,5 +1,5 @@
 import uvicorn
-
+from requests.status_codes import codes
 
 # host info
 PORT = 8000
@@ -10,7 +10,7 @@ async def app(scope, receive, send):
     assert scope['type'] == 'http'
     await send({
         'type': 'http.response.start',
-        'status': OK, # 200
+        'status': codes.ALL_OK, # 200
         'headers': [
             [b'content-type', b'text/plain'],
         ],
