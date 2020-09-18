@@ -3,20 +3,24 @@ import sentinel
 from collections import OrderedDict
 from datetime import timedelta
 
+
 class TimeError(Exception):
     """ Custom exception for timer based exceptions """
 
 class StopWatchTimerError(TimeError):
     """ Custom  exception for stopwatch based exceptions """
 
+
 # Sentinels to use as default empty values
 Nothing = sentinel.create('Nothing')
 Empty = sentinel.create('Empty')
+
 
 class StopWatchTimer:
     """ Stop Watch class which sort of mimics a stop watch (think apple iphone stop watch).
         With laps and reset
         Usage:
+
         At initialisation the timer starts, unless you pass defer=True, in which case an 
         instantiaited object exists to be started at your convenience with start()
     """
