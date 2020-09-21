@@ -7,7 +7,7 @@ from datetime import timedelta
 class TimeError(Exception):
     """ Custom exception for timer based exceptions """
 
-class StopWatchTimerError(TimeError):
+class StopWatchTimerError(Exception):
     """ Custom  exception for stopwatch based exceptions """
 
 
