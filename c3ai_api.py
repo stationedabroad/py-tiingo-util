@@ -23,7 +23,7 @@ metrics = ["ECDC_ConfirmedCases",
            ]
 
 # mandatory header for api
-headers = {
+_headers = {
     "Accept": "application/json",
     "Content-Type": "application/json",
 }
