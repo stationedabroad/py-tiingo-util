@@ -45,7 +45,7 @@ def main(countries) -> None:
                 }
             }
             res = get_covid_country_data(resource, country, query, metric)
-            print(f"country data: {country} status: {res.status_code}")
+#            print(f"country data: {country} status: {res.status_code}")
 
 if __name__ == '__main__':
     # get country loc list
