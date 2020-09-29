@@ -29,7 +29,7 @@ _headers = {
 }
 
 # main api resource
-resource = "https://api.c3.ai/covid/api/1/outbreaklocation/evalmetrics"
+_resource = "https://api.c3.ai/covid/api/1/outbreaklocation/evalmetrics"
 
 def main(countries) -> None:
     for country in countries:
@@ -44,7 +44,7 @@ def main(countries) -> None:
                     "end": "2020-06-10"
                 }
             }
-            res = get_covid_country_data(resource, country, query, metric)
+            res = get_covid_country_data(_resource, country, query, metric)
 #            print(f"country data: {country} status: {res.status_code}")
 
 if __name__ == '__main__':
